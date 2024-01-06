@@ -7,6 +7,7 @@ using Volo.Abp;
 using Volo.Abp.AspNetCore.Mvc;
 using Volo.Abp.AspNetCore.Serilog;
 using Volo.Abp.Autofac;
+using Volo.Abp.Identity.AspNetCore;
 using Volo.Abp.Modularity;
 using Volo.Abp.Swashbuckle;
 
@@ -18,7 +19,8 @@ namespace KamiPay;
     typeof(KamiPayApplicationModule),
     typeof(KamiPayEntityFrameworkCoreModule),
     typeof(AbpAspNetCoreSerilogModule),
-    typeof(AbpSwashbuckleModule)
+    typeof(AbpSwashbuckleModule),
+    typeof(AbpIdentityAspNetCoreModule)
 )]
 public class KamiPayHttpApiHostModule : AbpModule
 {
@@ -65,7 +67,11 @@ public class KamiPayHttpApiHostModule : AbpModule
             options.FallBackToParentCultures = true;
             options.FallBackToParentUICultures = true;
         });
-        context.Services.AddLocalization(options => options.ResourcesPath = "Resources");
+        context.Services
+            .AddLocalization(options => options.ResourcesPath = "Resources")
+            .AddRazorPages()
+            .AddViewLocalization()
+            .AddDataAnnotationsLocalization();
     }
 
     public override void OnApplicationInitialization(ApplicationInitializationContext context)
@@ -81,8 +87,8 @@ public class KamiPayHttpApiHostModule : AbpModule
         var localizationOptions = app.ApplicationServices.GetRequiredService<IOptions<RequestLocalizationOptions>>();
         app.UseRequestLocalization(localizationOptions.Value);
 
-        app.UseAbpRequestLocalization();
         app.UseCorrelationId();
+        app.UseHttpsRedirection();
         app.UseStaticFiles();
         app.UseRouting();
         app.UseCors();
