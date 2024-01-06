@@ -1,1 +1,22 @@
-﻿
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>@ViewData["PageTitle"] · @ViewData["PageDesc"]</title>
+    <link rel="shortcut icon" href="~/favicon.ico">
+    <link rel="stylesheet" href="~/lib/bootstrap-icons/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="~/lib/front/css/theme.min.css">
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
+</head>
+<body class="h-100">
+
+@RenderBody()
+
+<script src="~/lib/jquery/jquery.min.js"></script>
+<script src="~/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="~/lib/hs-toggle-password/hs-toggle-password.min.js"></script>
+<script src="~/lib/front/js/theme.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+</body>
+</html>

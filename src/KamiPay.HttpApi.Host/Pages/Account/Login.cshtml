@@ -1,0 +1,169 @@
+﻿@page
+@using Microsoft.AspNetCore.Http.Features
+@using Microsoft.AspNetCore.Localization
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@using KamiPay.Pages.Account
+@using Microsoft.Extensions.Localization
+@model KamiPay.Pages.Account.LoginModel
+@inject IStringLocalizer<LoginModel> L
+@{
+    ViewData["PageTitle"] = L["PageTitle"];
+    ViewData["PageDesc"] = L["PageDesc"];
+
+    var cultures = new Dictionary<string, (string Name, string Flag)>
+    {
+        ["en-US"] = ("English", "us"),
+        ["zh-CN"] = ("简体中文", "cn"),
+        ["zh-HK"] = ("繁體中文", "hk"),
+    };
+}
+<main style="height: 100vh;">
+    <div class="d-flex align-items-center min-h-100">
+        <header id="header" class="navbar navbar-expand navbar-light navbar-absolute-top">
+            <div class="container-fluid">
+                <nav class="navbar-nav-wrap">
+                    <a class="navbar-brand d-none d-lg-flex" href="https://www.kamipay.dev" target="_blank" aria-label="KamiPay">
+                        <img class="navbar-brand-logo" src="~/images/logos/logo-white.svg" alt="Logo">
+                    </a>
+
+                    <a class="navbar-brand d-flex d-lg-none" href="https://www.kamipay.dev" target="_blank" aria-label="KamiPay">
+                        <img class="navbar-brand-logo" src="~/images/logos/logo.svg" alt="Logo">
+                    </a>
+
+                    <div class="ms-auto">
+                        <a class="btn btn-ghost-dark" href="https://github.com/kamipay-dev/KamiPay" target="_blank"
+                           aria-label="KamiPay GitHub">
+                            <i class="bi-github small ms-1"></i> GitHub
+                        </a>
+
+                        <div class="btn-group">
+                            <button class="btn btn-ghost-dark dropdown-toggle" type="button"
+                                    id="languageDropdownMenuButton"
+                                    data-bs-toggle="dropdown"
+                                    aria-expanded="false"
+                                    data-bs-open-on-hover
+                                    data-bs-dropdown-animation>
+                                <i class="bi bi-translate"></i>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdownMenuButton">
+                                @foreach (var culture in cultures)
+                                {
+                                    if (HttpContext.Features.GetRequiredFeature<IRequestCultureFeature>().RequestCulture.Culture.Name == culture.Key)
+                                    {
+                                        <a class="dropdown-item text-primary"
+                                           asp-page="/Language"
+                                           asp-route-ReturnUrl="@HttpContext.Request.Path"
+                                           asp-route-Culture="@culture.Key">
+                                            <img alt="English" src="~/images/flags/@(culture.Value.Flag).svg" width="16" height="16" class="me-2"/>
+                                            <span>@culture.Value.Name</span>
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                        <a class="dropdown-item"
+                                           asp-page="/Language"
+                                           asp-route-ReturnUrl="@HttpContext.Request.Path"
+                                           asp-route-Culture="@culture.Key">
+                                            <img alt="English" src="~/images/flags/@(culture.Value.Flag).svg" width="16" height="16" class="me-2"/>
+                                            <span>@culture.Value.Name</span>
+                                        </a>
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+        <main id="content" role="main" class="flex-grow-1">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-5 col-xl-4 d-none d-lg-flex justify-content-center align-items-center min-vh-lg-100 position-relative bg-dark"
+                         style="background-image: url(/images/components/wave-pattern-light.svg);">
+                        <div class="flex-grow-1 p-5">
+                            <figure class="text-center">
+                                <div class="mb-4">
+                                    <img class="avatar avatar-xl avatar-4x3" src="~/images/logos/logo-white.svg" alt="Logo">
+                                </div>
+                                <blockquote class="blockquote blockquote-light">
+                                    @L["Feature"]
+                                </blockquote>
+                                <figcaption class="blockquote-footer blockquote-light">
+                                    <div class="mb-3">
+                                        <img class="avatar avatar-circle"
+                                             src="https://gravatar.com/avatar/28bd219d1fa3b3b596679ace3198d465f89c855cc9738918051c19ebb1d24539"
+                                             alt="Kaede Kami avatar">
+                                    </div>
+                                    Kaede Kami
+                                    <span class="blockquote-footer-source">Software creator | Ironforge</span>
+                                </figcaption>
+                            </figure>
+                            <div class="position-absolute start-0 end-0 bottom-0 text-center p-5">
+                                <div class="row justify-content-center">
+                                    <div class="col text-center py-3">
+                                        <img class="avatar avatar-xs" src="~/images/coins/ETH.svg" alt="Logo">
+                                    </div>
+                                    <div class="col text-center py-3">
+                                        <img class="avatar avatar-xs" src="~/images/coins/TRX.svg" alt="Logo">
+                                    </div>
+                                    <div class="col text-center py-3">
+                                        <img class="avatar avatar-xs" src="~/images/coins/USDT_ERC20.svg" alt="Logo">
+                                    </div>
+                                    <div class="col text-center py-3">
+                                        <img class="avatar avatar-xs" src="~/images/coins/USDT_TRC20.svg" alt="Logo">
+                                    </div>
+                                    <div class="col text-center py-3">
+                                        <img class="avatar avatar-xs" src="~/images/coins/USDC.svg" alt="Logo">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-7 col-xl-8 d-flex justify-content-center align-items-center min-vh-lg-100">
+                        <div class="flex-grow-1 mx-auto" style="max-width: 28rem;">
+                            <div class="text-center mb-5 mb-md-7">
+                                <h1 class="h2">@L["WelcomeBack"]</h1>
+                                <p>@L["LoginToManageMoney"]</p>
+                            </div>
+                            <form class="js-validate needs-validation" method="post" novalidate>
+                                <div class="mb-4">
+                                    <label class="form-label" asp-for="Input.UserNameOrEmailAddress"></label>
+                                    <input type="email"
+                                           class="form-control form-control-lg"
+                                           required
+                                           placeholder="@L["UserNameOrEmailAddressTip"]"
+                                           aria-label="@L["UserNameOrEmailAddressTip"]"
+                                           asp-for="Input.UserNameOrEmailAddress">
+                                    <span class="text-danger small" asp-validation-for="Input.UserNameOrEmailAddress"></span>
+                                </div>
+                                <div class="mb-4">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <label class="form-label" asp-for="Input.Password"></label>
+                                    </div>
+                                    <div class="input-group input-group-merge" data-hs-validation-validate-class>
+                                        <input type="password"
+                                               class="js-toggle-password form-control form-control-lg"
+                                               placeholder="@L["PasswordTip"]"
+                                               aria-label="@L["PasswordTip"]"
+                                               required
+                                               minlength="4"
+                                               data-hs-toggle-password-options='{"target": "#target", "defaultClass": "bi-eye-slash", "showClass": "bi-eye", "classChangeTarget": "#icon"}'
+                                               asp-for="Input.Password">
+                                        <a id="target" class="input-group-append input-group-text" href="javascript:;">
+                                            <i id="icon" class="bi-eye"></i>
+                                        </a>
+                                    </div>
+                                    <span class="text-danger small" asp-validation-for="Input.Password"></span>
+                                </div>
+                                <div class="d-grid mb-3">
+                                    <button type="submit" class="btn btn-primary btn-lg">@L["Login"]</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</main>
