@@ -10,9 +10,9 @@ public class IndexModel(ICurrentUser currentUser) : PageModel
     {
         if (currentUser.IsAuthenticated)
         {
-            return Page();
+            return Redirect("/Admin/Overview");
         }
 
-        return Redirect("Account/Login");
+        return Redirect("/Account/Login");
     }
 }

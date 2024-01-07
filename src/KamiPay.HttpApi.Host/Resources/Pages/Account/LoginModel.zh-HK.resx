@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Feature" xml:space="preserve">
-    <value>KamiPay 提供了一種簡單的加密付款和收款方式。</value>
+    <value>“KamiPay 提供了一種簡單的加密付款和收款方式。”</value>
   </data>
   <data name="InvalidUsernameOrPassword" xml:space="preserve">
     <value>用戶名或者密碼錯誤。</value>

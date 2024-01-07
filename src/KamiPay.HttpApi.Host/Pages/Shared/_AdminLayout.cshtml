@@ -1,0 +1,232 @@
+﻿@using Volo.Abp.Users
+@using Microsoft.AspNetCore.Localization
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@using Microsoft.AspNetCore.Http.Features
+@inject ICurrentUser CurrentUser
+@{
+    Layout = "_Layout";
+
+    var cultures = new Dictionary<string, (string Name, string Flag)>
+    {
+        ["en-US"] = ("English", "us"),
+        ["zh-CN"] = ("简体中文", "cn"),
+        ["zh-HK"] = ("繁體中文", "hk"),
+    };
+    var requestCulture = Context.Features.GetRequiredFeature<IRequestCultureFeature>().RequestCulture.Culture.Name;
+}
+<main id="content" role="main" class="bg-light">
+    <div class="navbar-dark bg-dark" style="background-image: url(/images/components/wave-pattern-light.svg);">
+        <div class="container content-space-1 content-space-b-lg-3">
+            <div class="row align-items-center">
+                <div class="col">
+                    <div class="d-none d-lg-block">
+                        <h1 class="h2 text-white">Overview</h1>
+                    </div>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb breadcrumb-light mb-0">
+                            <li class="breadcrumb-item">Admin</li>
+                            <li class="breadcrumb-item active" aria-current="page">Overview</li>
+                        </ol>
+                    </nav>
+                </div>
+
+                <div class="col-auto">
+                    <div class="d-none d-lg-block">
+                        <a class="btn btn-soft-light btn-sm" asp-page="/Account/Logout">Log out</a>
+                    </div>
+                    <button class="navbar-toggler d-lg-none" type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#sidebarNav"
+                            aria-controls="sidebarNav"
+                            aria-expanded="false"
+                            aria-label="Toggle navigation">
+                        <span class="navbar-toggler-default">
+                            <i class="bi-list"></i>
+                        </span>
+                        <span class="navbar-toggler-toggled">
+                            <i class="bi-x"></i>
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container content-space-1 content-space-t-lg-0 content-space-b-lg-2 mt-lg-n10">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="navbar-expand-lg navbar-light">
+                    <div id="sidebarNav" class="collapse navbar-collapse navbar-vertical">
+                        <div class="card flex-grow-1 mb-5">
+                            <div class="card-body">
+                                <div class="d-none d-lg-block text-center mb-5">
+                                    <div class="avatar avatar-xxl avatar-circle mb-3">
+                                        <img class="avatar-img" src="https://gravatar.com/avatar/28bd219d1fa3b3b596679ace3198d465f89c855cc9738918051c19ebb1d24539"
+                                             alt="User profile picture">
+                                        <img class="avatar-status avatar-lg-status" src="~/images/components/top-vendor.svg"
+                                             alt="Image Description"
+                                             data-bs-toggle="tooltip"
+                                             data-bs-placement="top"
+                                             title="Verified user">
+                                    </div>
+                                    <h4 class="card-title mb-0">@CurrentUser.UserName</h4>
+                                    <p class="card-text small">@CurrentUser.Email</p>
+                                </div>
+                                <span class="text-cap">Account</span>
+                                <ul class="nav nav-sm nav-tabs nav-vertical mb-4">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" asp-page="/Admin/Overview">
+                                            <i class="bi-person-gear nav-icon"></i> Overview
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" asp-page="/Admin/Overview">
+                                            <i class="bi-sliders nav-icon"></i> Settings
+                                        </a>
+                                    </li>
+                                </ul>
+                                <span class="text-cap">Trading</span>
+                                <ul class="nav nav-sm nav-tabs nav-vertical mb-4">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">
+                                            <i class="bi-cart nav-icon"></i> Orders
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">
+                                            <i class="bi-coin nav-icon"></i> Transactions
+                                        </a>
+                                    </li>
+                                </ul>
+                                <div class="d-lg-none">
+                                    <div class="dropdown-divider"></div>
+                                    <ul class="nav nav-sm nav-tabs nav-vertical">
+                                        <li class="nav-item">
+                                            <a class="nav-link" asp-page="/Account/Logout">
+                                                <i class="bi-box-arrow-right nav-icon"></i> Log out
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-9">
+                <div class="d-grid gap-3 gap-lg-5">
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer class="bg-dark">
+    <div class="container pb-1 pb-lg-5">
+        <div class="row content-space-t-2">
+            <div class="col-lg-3 mb-7 mb-lg-0">
+                <div class="mb-5">
+                    <a class="navbar-brand" href="#" aria-label="Space">
+                        <img class="navbar-brand-logo" src="~/images/logos/logo-white.svg" alt="KamiPay">
+                    </a>
+                </div>
+                <ul class="list-unstyled list-py-1">
+                    <li>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-soft-light btn-xs dropdown-toggle" id="footerSelectLanguage"
+                                    data-bs-toggle="dropdown"
+                                    data-bs-dropdown-animation
+                                    aria-expanded="false">
+                                <span class="d-flex align-items-center">
+                                    <img class="avatar avatar-xss avatar-circle me-2" src="~/images/flags/@(cultures[requestCulture].Flag).svg"
+                                         alt="@cultures[requestCulture].Name" width="16" />
+                                    <span>@cultures[requestCulture].Name</span>
+                                </span>
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="footerSelectLanguage">
+                                @foreach (var culture in cultures)
+                                {
+                                    <a class="dropdown-item d-flex align-items-center"
+                                       asp-page="/Language"
+                                       asp-route-ReturnUrl="@Context.Request.Path"
+                                       asp-route-Culture="@culture.Key">
+                                        <img class="avatar avatar-xss avatar-circle me-2" src="~/images/flags/@(culture.Value.Flag).svg"
+                                             alt="@culture.Value.Name" width="16"/>
+                                        <span>@culture.Value.Name</span>
+                                    </a>
+                                }
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-sm mb-7 mb-sm-0">
+                <h5 class="text-white mb-3">Documentation</h5>
+                <ul class="list-unstyled list-py-1 mb-0">
+                    <li>
+                        <a class="link-sm link-light" href="#">GitHub <i class="bi-box-arrow-up-right small ms-1"></i></a>
+                    </li>
+                    <li>
+                        <a class="link-sm link-light" href="#">Docs <i class="bi-box-arrow-up-right small ms-1"></i></a>
+                    </li>
+                    <li>
+                        <a class="link-sm link-light" href="#">API Reference <i class="bi-box-arrow-up-right small ms-1"></i></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-sm mb-7 mb-sm-0">
+                <h5 class="text-white mb-3">Community</h5>
+                <ul class="list-unstyled list-py-1 mb-0">
+                    <li>
+                        <a class="link-sm link-light" href="#">Telegram Group <i class="bi-box-arrow-up-right small ms-1"></i></a>
+                    </li>
+                    <li>
+                        <a class="link-sm link-light" href="#">Telegram Channel <i class="bi-box-arrow-up-right small ms-1"></i></a>
+                    </li>
+                    <li>
+                        <a class="link-sm link-light" href="#">GitHub Issue <i class="bi-box-arrow-up-right small ms-1"></i></a>
+                    </li>
+                    <li>
+                        <a class="link-sm link-light" href="#">Twitter <i class="bi-box-arrow-up-right small ms-1"></i></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-sm mb-7 mb-sm-0">
+                <h5 class="text-white mb-3">Friend link</h5>
+                <ul class="list-unstyled list-py-1 mb-0">
+                    <li>
+                        <a class="link-sm link-light" href="#">广告位招租</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-sm">
+                <h5 class="text-white mb-3">Resources</h5>
+                <ul class="list-unstyled list-py-1 mb-5">
+                    <li>
+                        <a class="link-sm link-light" href="https://etherscan.io/" target="_blank">
+                            <img src="~/images/brands/etherscan.svg" alt="Etherscan" height="16" width="16"/>
+                            <span class="ms-1 me-1">Etherscan</span>
+                            <i class="bi-box-arrow-up-right small"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="link-sm link-light" href="https://bscscan.com/" target="_blank">
+                            <img src="~/images/brands/bscscan.svg" alt="Bscscan" height="16" width="16"/>
+                            <span class="ms-1 me-1">Bscscan</span>
+                            <i class="bi-box-arrow-up-right small"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="link-sm link-light" href="https://polygonscan.com/" target="_blank">
+                            <img src="~/images/brands/polygonscan.svg" alt="Polygonscan" height="16" width="16"/>
+                            <span class="ms-1 me-1">Polygonscan</span>
+                            <i class="bi-box-arrow-up-right small"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
