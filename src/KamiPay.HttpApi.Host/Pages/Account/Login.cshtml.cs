@@ -31,7 +31,7 @@ public class LoginModel(
     {
         if (currentUser.IsAuthenticated)
         {
-            return RedirectToPage("/Index");
+            return RedirectToPage("/Admin/Overview");
         }
 
         return Page();
@@ -62,7 +62,7 @@ public class LoginModel(
 
         if (signInResult.Succeeded)
         {
-            return RedirectToPage("/Index");
+            return Redirect("/Admin/Overview");
         }
 
         if (signInResult.IsLockedOut)
