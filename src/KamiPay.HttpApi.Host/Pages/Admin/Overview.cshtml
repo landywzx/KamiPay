@@ -1,0 +1,118 @@
+﻿@page
+@using Microsoft.Extensions.Localization
+@using KamiPay.Pages.Admin
+@model KamiPay.Pages.Admin.OverviewModel
+@inject IStringLocalizer<OverviewModel> L
+@{
+    Layout = "Shared/_AdminLayout";
+
+    ViewData["PageTitle"] = L["PageTitle"];
+    ViewData["PageDesc"] = L["PageDesc"];
+    ViewData["PageName"] = "Overview";
+}
+<div class="card">
+    <div class="card-header border-bottom">
+        <h4 class="card-header-title">Basic info</h4>
+    </div>
+    <div class="card-body">
+        <form>
+            <div class="row mb-4">
+                <label class="col-sm-3 col-form-label form-label">Profile photo</label>
+                <div class="col-sm-9">
+                    <div class="d-flex align-items-center">
+                        <label class="avatar avatar-xl avatar-circle" for="avatarUploader">
+                            <img id="avatarImg" class="avatar-img" src="./assets/img/160x160/img9.jpg" alt="Image Description">
+                        </label>
+                        <div class="d-grid d-sm-flex gap-2 ms-4">
+                            <div class="form-attachment-btn btn btn-primary btn-sm">
+                                Upload photo
+                                <input type="file" class="js-file-attach form-attachment-btn-label" id="avatarUploader"
+                                       data-hs-file-attach-options='{
+                                      "textTarget": "#avatarImg",
+                                      "mode": "image",
+                                      "targetAttr": "src",
+                                      "resetTarget": ".js-file-attach-reset-img",
+                                      "resetImg": "./assets/img/160x160/img1.jpg",
+                                      "allowTypes": [".png", ".jpeg", ".jpg"]
+                                   }'>
+                            </div>
+                            <button type="button" class="js-file-attach-reset-img btn btn-white btn-sm">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-4">
+                <label for="firstNameLabel" class="col-sm-3 col-form-label form-label">Full name <i class="bi-question-circle text-body ms-1" data-bs-toggle="tooltip" data-bs-placement="top" title="Displayed on public forums, such as Front."></i></label>
+                <div class="col-sm-9">
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="firstName" id="firstNameLabel" placeholder="Clarice" aria-label="Clarice" value="Natalie">
+                        <input type="text" class="form-control" name="lastName" id="lastNameLabel" placeholder="Boone" aria-label="Boone" value="Curtis">
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-4">
+                <label for="emailLabel" class="col-sm-3 col-form-label form-label">Email</label>
+                <div class="col-sm-9">
+                    <input type="email" class="form-control" name="email" id="emailLabel" placeholder="clarice@example.com" aria-label="clarice@example.com" value="natalie@example.com">
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <label for="disableAdCheckbox" class="col-sm-3 col-form-label form-label">Disable ads <span class="badge badge-primary text-uppercase ms-1">PRO</span></label>
+                <div class="col-sm-9">
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="disableAdCheckbox">
+                        <label class="form-check-label" for="disableAdCheckbox">With your Pro account, you can disable ads across the site.</label>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="card-footer pt-0">
+        <div class="d-flex justify-content-end gap-3">
+            <a class="btn btn-white" href="javascript:;">Cancel</a>
+            <a class="btn btn-primary" href="javascript:;">Save changes</a>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header border-bottom">
+        <h5 class="card-header-title">Password</h5>
+    </div>
+    <div class="card-body">
+        <form>
+            <div class="row mb-4">
+                <label for="currentPasswordLabel" class="col-sm-3 col-form-label form-label">Current password</label>
+                <div class="col-sm-9">
+                    <input type="password" class="form-control" name="currentPassword" id="currentPasswordLabel" placeholder="Enter current password" aria-label="Enter current password">
+                </div>
+            </div>
+            <div class="row mb-4">
+                <label for="newPassword" class="col-sm-3 col-form-label form-label">New password</label>
+                <div class="col-sm-9">
+                    <input type="password" class="form-control" name="newPassword" id="newPassword" placeholder="Enter new password" aria-label="Enter new password">
+                </div>
+            </div>
+            <div class="row mb-4">
+                <label for="confirmNewPasswordLabel" class="col-sm-3 col-form-label form-label">Confirm new password</label>
+                <div class="col-sm-9">
+                    <div class="mb-3">
+                        <input type="password" class="form-control" name="confirmNewPassword" id="confirmNewPasswordLabel" placeholder="Confirm your new password" aria-label="Confirm your new password">
+                    </div>
+                    <h5>Password requirements:</h5>
+                    <p class="card-text small">Ensure that these requirements are met:</p>
+                    <ul class="small">
+                        <li>Minimum 8 characters long - the more, the better</li>
+                        <li>At least one lowercase character</li>
+                        <li>At least one uppercase character</li>
+                        <li>At least one number, symbol, or whitespace character</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="d-flex justify-content-end gap-3">
+                <a class="btn btn-white" href="javascript:;">Cancel</a>
+                <button type="submit" class="btn btn-primary">Update Password</button>
+            </div>
+        </form>
+    </div>
+</div>

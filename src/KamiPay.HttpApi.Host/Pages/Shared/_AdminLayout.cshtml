@@ -80,7 +80,7 @@
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" asp-page="/Admin/Overview">
+                                        <a class="nav-link" asp-page="/Admin/Settings">
                                             <i class="bi-sliders nav-icon"></i> Settings
                                         </a>
                                     </li>
@@ -141,7 +141,7 @@
                                     aria-expanded="false">
                                 <span class="d-flex align-items-center">
                                     <img class="avatar avatar-xss avatar-circle me-2" src="~/images/flags/@(cultures[requestCulture].Flag).svg"
-                                         alt="@cultures[requestCulture].Name" width="16" />
+                                         alt="@cultures[requestCulture].Name" width="16"/>
                                     <span>@cultures[requestCulture].Name</span>
                                 </span>
                             </button>
@@ -174,22 +174,41 @@
                     <li>
                         <a class="link-sm link-light" href="#">API Reference <i class="bi-box-arrow-up-right small ms-1"></i></a>
                     </li>
+                    <li>
+                        <a class="link-sm link-light" href="#">KamiPay <i class="bi-box-arrow-up-right small ms-1"></i></a>
+                    </li>
                 </ul>
             </div>
             <div class="col-sm mb-7 mb-sm-0">
                 <h5 class="text-white mb-3">Community</h5>
                 <ul class="list-unstyled list-py-1 mb-0">
                     <li>
-                        <a class="link-sm link-light" href="#">Telegram Group <i class="bi-box-arrow-up-right small ms-1"></i></a>
+                        <a class="link-sm link-light" href="#">
+                            <i class="bi bi-telegram"></i>
+                            <span class="ms-1 me-1">Group</span>
+                            <i class="bi-box-arrow-up-right small"></i>
+                        </a>
                     </li>
                     <li>
-                        <a class="link-sm link-light" href="#">Telegram Channel <i class="bi-box-arrow-up-right small ms-1"></i></a>
+                        <a class="link-sm link-light" href="#">
+                            <i class="bi bi-telegram"></i>
+                            <span class="ms-1 me-1">Channel</span>
+                            <i class="bi-box-arrow-up-right small"></i>
+                        </a>
                     </li>
                     <li>
-                        <a class="link-sm link-light" href="#">GitHub Issue <i class="bi-box-arrow-up-right small ms-1"></i></a>
+                        <a class="link-sm link-light" href="#">
+                            <i class="bi bi-github"></i>
+                            <span class="ms-1 me-1">Issue</span>
+                            <i class="bi-box-arrow-up-right small"></i>
+                        </a>
                     </li>
                     <li>
-                        <a class="link-sm link-light" href="#">Twitter <i class="bi-box-arrow-up-right small ms-1"></i></a>
+                        <a class="link-sm link-light" href="#">
+                            <i class="bi bi-twitter"></i>
+                            <span class="ms-1 me-1">Twitter</span>
+                            <i class="bi-box-arrow-up-right small"></i>
+                        </a>
                     </li>
                 </ul>
             </div>
