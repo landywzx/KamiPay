@@ -135,9 +135,6 @@
   <data name="NotAllowed" xml:space="preserve">
     <value>账号已经被禁止登录。</value>
   </data>
-  <data name="PageDesc" xml:space="preserve">
-    <value>KamiPay - 让支付和收款更简单</value>
-  </data>
   <data name="PageTitle" xml:space="preserve">
     <value>登录</value>
   </data>

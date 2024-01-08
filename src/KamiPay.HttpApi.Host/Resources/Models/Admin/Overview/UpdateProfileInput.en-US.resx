@@ -117,43 +117,25 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Feature" xml:space="preserve">
-    <value>" KamiPay provides a simple way to pay and receive money in crypto. "</value>
+  <data name="Email" xml:space="preserve">
+    <value>Email address</value>
   </data>
-  <data name="InvalidUsernameOrPassword" xml:space="preserve">
-    <value>Invalid user name or password.</value>
+  <data name="EmailRequired" xml:space="preserve">
+    <value>Email address can not be empty.</value>
   </data>
-  <data name="LockedOut" xml:space="preserve">
-    <value>Account is locked out.</value>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
   </data>
-  <data name="Login" xml:space="preserve">
-    <value>Log in</value>
+  <data name="PhoneNumber" xml:space="preserve">
+    <value>Phone number</value>
   </data>
-  <data name="LoginToManageMoney" xml:space="preserve">
-    <value>Login to manage your money</value>
+  <data name="Surname" xml:space="preserve">
+    <value>Surname</value>
   </data>
-  <data name="NotAllowed" xml:space="preserve">
-    <value>Accout is not allowed.</value>
+  <data name="UserName" xml:space="preserve">
+    <value>User name</value>
   </data>
-  <data name="PageTitle" xml:space="preserve">
-    <value>Login</value>
-  </data>
-  <data name="Password" xml:space="preserve">
-    <value>Password</value>
-  </data>
-  <data name="PasswordTip" xml:space="preserve">
-    <value>Password</value>
-  </data>
-  <data name="RequiresTwoFactor" xml:space="preserve">
-    <value>Account requires two factor.</value>
-  </data>
-  <data name="UserNameOrEmailAddress" xml:space="preserve">
-    <value>Your email or username</value>
-  </data>
-  <data name="UserNameOrEmailAddressTip" xml:space="preserve">
-    <value>User name or email@site.com</value>
-  </data>
-  <data name="WelcomeBack" xml:space="preserve">
-    <value>Welcome back</value>
+  <data name="UserNameRequired" xml:space="preserve">
+    <value>User name can not be empty.</value>
   </data>
 </root>

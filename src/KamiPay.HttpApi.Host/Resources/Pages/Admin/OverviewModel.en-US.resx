@@ -117,10 +117,70 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="PageDesc" xml:space="preserve">
-    <value>KamiPay - Making payments easier</value>
+  <data name="BasicInfo" xml:space="preserve">
+    <value>Basic info</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="ConfirmPasswordTip" xml:space="preserve">
+    <value>Confirm your new password</value>
+  </data>
+  <data name="CurrentPasswordTip" xml:space="preserve">
+    <value>Enter current password</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="EmailAddressTip" xml:space="preserve">
+    <value>Email address</value>
+  </data>
+  <data name="FirstNameTip" xml:space="preserve">
+    <value>First name</value>
+  </data>
+  <data name="FullName" xml:space="preserve">
+    <value>Full name</value>
+  </data>
+  <data name="LastNameTip" xml:space="preserve">
+    <value>Last name</value>
+  </data>
+  <data name="NewPasswordTip" xml:space="preserve">
+    <value>Enter new password</value>
   </data>
   <data name="PageTitle" xml:space="preserve">
     <value>Overview</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="PasswordRequirement1" xml:space="preserve">
+    <value>Minimum 8 characters long - the more, the better</value>
+  </data>
+  <data name="PasswordRequirement2" xml:space="preserve">
+    <value>At least one lowercase character</value>
+  </data>
+  <data name="PasswordRequirement3" xml:space="preserve">
+    <value>At least one uppercase character</value>
+  </data>
+  <data name="PasswordRequirement4" xml:space="preserve">
+    <value>At least one number, symbol, or whitespace character</value>
+  </data>
+  <data name="PasswordRequirements" xml:space="preserve">
+    <value>Password requirements:</value>
+  </data>
+  <data name="PasswordRequirementsDesc" xml:space="preserve">
+    <value>Ensure that these requirements are met:</value>
+  </data>
+  <data name="ProfilePhoto" xml:space="preserve">
+    <value>Profile photo</value>
+  </data>
+  <data name="SaveChanges" xml:space="preserve">
+    <value>Save changes</value>
+  </data>
+  <data name="UploadPhoto" xml:space="preserve">
+    <value>Upload photo</value>
+  </data>
+  <data name="UserNameTip" xml:space="preserve">
+    <value>User name</value>
   </data>
 </root>

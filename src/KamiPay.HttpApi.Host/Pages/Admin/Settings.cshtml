@@ -55,6 +55,58 @@
                     </div>
                 </div>
             </div>
+            <div class="js-add-field row mb-4"
+                 data-hs-add-field-options='{
+                          "template": "#addPhoneFieldTemplate",
+                          "container": "#addPhoneFieldContainer",
+                          "defaultCreated": 0
+                        }'>
+                <label for="phoneLabel" class="col-sm-3 col-form-label form-label">固定收款地址</label>
+                <div class="col-sm-9">
+                    <div class="input-group">
+                        <input type="text" class="js-input-mask form-control" name="phone" id="phoneLabel" placeholder="+x(xxx)xxx-xx-xx" aria-label="+x(xxx)xxx-xx-xx"
+                               data-hs-mask-options='{
+                                 "mask": "+{0}(000)000-00-00"
+                               }'>
+                        <div class="tom-select-custom">
+                            <select class="js-select form-select" name="phoneSelect"
+                                    data-hs-tom-select-options='{
+                                    "width": "8rem",
+                                    "hideSearch": true
+                                  }'>
+                                <option value="Mobile" selected>TRON</option>
+                                <option value="Home">EVM</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div id="addPhoneFieldContainer"></div>
+                    <a href="javascript:;" class="js-create-field form-link">
+                        <i class="bi-plus-circle me-1"></i> 添加地址
+                    </a>
+                </div>
+            </div>
+            <div id="addPhoneFieldTemplate" style="display: none; position: relative;">
+                <div class="input-group input-group-add-field">
+                    <input type="text" class="js-input-mask-dynamic form-control" data-name="additionlPhone" placeholder="+x(xxx)xxx-xx-xx" aria-label="+x(xxx)xxx-xx-xx"
+                           data-hs-mask-options='{
+                               "mask": "+{0}(000)000-00-00"
+                             }'>
+                    <div class="tom-select-custom">
+                        <select class="js-select-dynamic form-select" data-name="additionlPhoneSelect"
+                                data-hs-tom-select-options='{
+                                    "width": "8rem",
+                                    "hideSearch": true
+                                  }'>
+                            <option value="Mobile" selected>TRON</option>
+                            <option value="Home">EVM</option>
+                        </select>
+                    </div>
+                </div>
+                <a class="js-delete-field input-group-add-field-delete" href="javascript:;">
+                    <i class="bi-x-lg"></i>
+                </a>
+            </div>
+
             <div class="d-flex justify-content-end gap-3 mt-3">
                 <a class="btn btn-white" href="javascript:;">Cancel</a>
                 <button type="submit" class="btn btn-primary">Save changes</button>
@@ -62,6 +114,36 @@
         </form>
     </div>
 </div>
+
+<div class="card">
+    <div class="card-header border-bottom">
+        <h5 class="card-title">自动归集</h5>
+    </div>
+    <div class="card-body">
+        <form>
+            <div class="row  mb-4 align-items-center">
+                <label for="disableAdCheckbox" class="col-sm-3 col-form-label form-label"></label>
+                <div class="col-sm-9">
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" >
+                        <label class="form-check-label" for="disableAdCheckbox">启用自动归集</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-4">
+                <label class="col-sm-3 col-form-label form-label">归集时间</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control">
+                </div>
+            </div>
+            <div class="d-flex justify-content-end gap-3 mt-3">
+                <a class="btn btn-white" href="javascript:;">Cancel</a>
+                <button type="submit" class="btn btn-primary">Save changes</button>
+            </div>
+        </form>
+    </div>
+</div>
+
 <div class="card">
     <div class="card-header border-bottom">
         <h5 class="card-title">Telegram</h5>

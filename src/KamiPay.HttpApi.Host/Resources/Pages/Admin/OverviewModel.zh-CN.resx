@@ -97,10 +97,70 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="PageDesc" xml:space="preserve">
-    <value>KamiPay - 让支付和收款更简单</value>
-  </data>
   <data name="PageTitle" xml:space="preserve">
     <value>预览</value>
+  </data>
+  <data name="BasicInfo" xml:space="preserve">
+    <value>基本信息</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="FullName" xml:space="preserve">
+    <value>全名</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>密码</value>
+  </data>
+  <data name="PasswordRequirement1" xml:space="preserve">
+    <value>至少 8 个字符长 - 越多越好</value>
+  </data>
+  <data name="PasswordRequirement2" xml:space="preserve">
+    <value>至少一个小写字符</value>
+  </data>
+  <data name="PasswordRequirement3" xml:space="preserve">
+    <value>至少一个大写字符</value>
+  </data>
+  <data name="PasswordRequirement4" xml:space="preserve">
+    <value>至少一个数字、符号或空白字符</value>
+  </data>
+  <data name="PasswordRequirements" xml:space="preserve">
+    <value>密码要求：</value>
+  </data>
+  <data name="PasswordRequirementsDesc" xml:space="preserve">
+    <value>确保满足这些要求：</value>
+  </data>
+  <data name="ProfilePhoto" xml:space="preserve">
+    <value>头像照片</value>
+  </data>
+  <data name="SaveChanges" xml:space="preserve">
+    <value>保存更改</value>
+  </data>
+  <data name="UploadPhoto" xml:space="preserve">
+    <value>上传图片</value>
+  </data>
+  <data name="ConfirmPasswordTip" xml:space="preserve">
+    <value>确认您的新密码</value>
+  </data>
+  <data name="CurrentPasswordTip" xml:space="preserve">
+    <value>输入当前密码</value>
+  </data>
+  <data name="EmailAddressTip" xml:space="preserve">
+    <value>电子邮件地址</value>
+  </data>
+  <data name="FirstNameTip" xml:space="preserve">
+    <value>名</value>
+  </data>
+  <data name="LastNameTip" xml:space="preserve">
+    <value>姓</value>
+  </data>
+  <data name="NewPasswordTip" xml:space="preserve">
+    <value>输入新密码</value>
+  </data>
+  <data name="UserNameTip" xml:space="preserve">
+    <value>用户名</value>
   </data>
 </root>

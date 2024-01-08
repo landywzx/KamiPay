@@ -4,18 +4,19 @@
 @using Microsoft.AspNetCore.Mvc.TagHelpers
 @using KamiPay.Pages.Account
 @using Microsoft.Extensions.Localization
+@using KamiPay.Models.Components
 @model KamiPay.Pages.Account.LoginModel
 @inject IStringLocalizer<LoginModel> L
 @{
     ViewData["PageTitle"] = L["PageTitle"];
-    ViewData["PageDesc"] = L["PageDesc"];
 
-    var cultures = new Dictionary<string, (string Name, string Flag)>
+    var cultures = new List<CultureItem>
     {
-        ["en-US"] = ("English", "us"),
-        ["zh-CN"] = ("简体中文", "cn"),
-        ["zh-HK"] = ("繁體中文", "hk"),
+        new("en-US", "English", "us"),
+        new("zh-CN", "简体中文", "cn"),
+        new("zh-HK", "繁體中文", "hk"),
     };
+    var cultureName = HttpContext.Features.GetRequiredFeature<IRequestCultureFeature>().RequestCulture.Culture.Name;
 }
 <main style="height: 100vh;">
     <div class="d-flex align-items-center min-h-100">
@@ -48,26 +49,13 @@
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdownMenuButton">
                                 @foreach (var culture in cultures)
                                 {
-                                    if (HttpContext.Features.GetRequiredFeature<IRequestCultureFeature>().RequestCulture.Culture.Name == culture.Key)
-                                    {
-                                        <a class="dropdown-item text-primary"
-                                           asp-page="/Language"
-                                           asp-route-ReturnUrl="@HttpContext.Request.Path"
-                                           asp-route-Culture="@culture.Key">
-                                            <img alt="@culture.Value.Name" src="~/images/flags/@(culture.Value.Flag).svg" width="16" height="16" class="me-2" />
-                                            <span>@culture.Value.Name</span>
-                                        </a>
-                                    }
-                                    else
-                                    {
-                                        <a class="dropdown-item"
-                                           asp-page="/Language"
-                                           asp-route-ReturnUrl="@HttpContext.Request.Path"
-                                           asp-route-Culture="@culture.Key">
-                                            <img alt="@culture.Value.Name" src="~/images/flags/@(culture.Value.Flag).svg" width="16" height="16" class="me-2" />
-                                            <span>@culture.Value.Name</span>
-                                        </a>
-                                    }
+                                    <a class="dropdown-item @(cultureName == culture.Code ? "text-primary" : string.Empty)"
+                                       asp-page="/Language"
+                                       asp-route-ReturnUrl="@HttpContext.Request.Path"
+                                       asp-route-Culture="@culture.Code">
+                                        <img alt="@culture.Name" src="~/images/flags/@(culture.Flag).svg" width="16" height="16" class="me-2"/>
+                                        <span>@culture.Name</span>
+                                    </a>
                                 }
                             </div>
                         </div>
@@ -91,9 +79,7 @@
                                 </blockquote>
                                 <figcaption class="blockquote-footer blockquote-light">
                                     <div class="mb-3">
-                                        <img class="avatar avatar-circle"
-                                             src="https://gravatar.com/avatar/28bd219d1fa3b3b596679ace3198d465f89c855cc9738918051c19ebb1d24539"
-                                             alt="Kaede Kami avatar">
+                                        <img class="avatar avatar-circle" src="~/images/avatar.jpg" alt="Kaede Kami avatar">
                                     </div>
                                     Kaede Kami
                                     <span class="blockquote-footer-source">Software creator | Ironforge</span>

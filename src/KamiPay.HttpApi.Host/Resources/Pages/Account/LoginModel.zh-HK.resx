@@ -135,9 +135,6 @@
   <data name="NotAllowed" xml:space="preserve">
     <value>賬號已經被禁止登錄。</value>
   </data>
-  <data name="PageDesc" xml:space="preserve">
-    <value>KamiPay - 讓付款和收款更簡單</value>
-  </data>
   <data name="PageTitle" xml:space="preserve">
     <value>登錄</value>
   </data>
