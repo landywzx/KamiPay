@@ -116,7 +116,7 @@
     <value>密码</value>
   </data>
   <data name="PasswordRequirement1" xml:space="preserve">
-    <value>至少 8 个字符长 - 越多越好</value>
+    <value>至少 6 个字符长 - 越多越好</value>
   </data>
   <data name="PasswordRequirement2" xml:space="preserve">
     <value>至少一个小写字符</value>
@@ -162,5 +162,11 @@
   </data>
   <data name="UserNameTip" xml:space="preserve">
     <value>用户名</value>
+  </data>
+  <data name="PasswordMismatch" xml:space="preserve">
+    <value>密码错误。</value>
+  </data>
+  <data name="PasswordDoesNotMeetRequirements" xml:space="preserve">
+    <value>密码不符合要求。</value>
   </data>
 </root>

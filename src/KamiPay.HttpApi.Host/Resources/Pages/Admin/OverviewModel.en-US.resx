@@ -153,8 +153,14 @@
   <data name="Password" xml:space="preserve">
     <value>Password</value>
   </data>
+  <data name="PasswordDoesNotMeetRequirements" xml:space="preserve">
+    <value>The password does not meet the requirements.</value>
+  </data>
+  <data name="PasswordMismatch" xml:space="preserve">
+    <value>Incorrect password.</value>
+  </data>
   <data name="PasswordRequirement1" xml:space="preserve">
-    <value>Minimum 8 characters long - the more, the better</value>
+    <value>Minimum 6 characters long - the more, the better</value>
   </data>
   <data name="PasswordRequirement2" xml:space="preserve">
     <value>At least one lowercase character</value>

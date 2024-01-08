@@ -1,8 +1,13 @@
 ﻿@page
+@using KamiPay.Pages.Admin
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@using Microsoft.Extensions.Localization
 @model KamiPay.Pages.Admin.SettingsModel
+@inject IStringLocalizer<SettingsModel> L
 @{
     Layout = "Shared/_AdminLayout";
 
+    ViewData["PageTitle"] = L["PageTitle"];
     ViewData["PageName"] = "Settings";
 }
 

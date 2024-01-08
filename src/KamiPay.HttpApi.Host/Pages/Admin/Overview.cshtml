@@ -1,4 +1,4 @@
-﻿@page
+﻿@page "{handler?}"
 @using Microsoft.Extensions.Localization
 @using KamiPay.Pages.Admin
 @model KamiPay.Pages.Admin.OverviewModel
@@ -14,7 +14,7 @@
         <h4 class="card-header-title">@L["BasicInfo"]</h4>
     </div>
     <div class="card-body">
-        <form method="post">
+        <form method="post" asp-page-handler="UpdateProfile">
             <div class="row mb-4">
                 <label class="col-sm-3 col-form-label form-label">@L["ProfilePhoto"]</label>
                 <div class="col-sm-9">
@@ -40,7 +40,6 @@
                            required
                            placeholder='@L["UserNameTip"]'
                            aria-label='@L["UserNameTip"]'
-                           value=""
                            asp-for="UpdateProfileInput.UserName">
                 </div>
             </div>
@@ -69,13 +68,11 @@
                     <input type="hidden" asp-for="UpdateProfileInput.ConcurrencyStamp"/>
                 </div>
             </div>
+            <div class="d-flex justify-content-end gap-3">
+                <button type="submit" class="btn btn-white">@L["Cancel"]</button>
+                <button type="submit" class="btn btn-primary">@L["SaveChanges"]</button>
+            </div>
         </form>
-    </div>
-    <div class="card-footer pt-0">
-        <div class="d-flex justify-content-end gap-3">
-            <button type="submit" class="btn btn-white">@L["Cancel"]</button>
-            <button type="submit" class="btn btn-primary">@L["SaveChanges"]</button>
-        </div>
     </div>
 </div>
 
@@ -84,7 +81,7 @@
         <h5 class="card-header-title">@L["Password"]</h5>
     </div>
     <div class="card-body">
-        <form>
+        <form method="post" asp-page-handler="ChangePassword">
             <div class="row mb-4">
                 <label class="col-sm-3 col-form-label form-label" asp-for="UpdatePasswordInput.CurrentPassword"></label>
                 <div class="col-sm-9">
@@ -92,6 +89,7 @@
                            placeholder='@L["CurrentPasswordTip"]'
                            aria-label='@L["CurrentPasswordTip"]'
                            asp-for="UpdatePasswordInput.CurrentPassword">
+                    <span class="text-danger small" asp-validation-for="UpdatePasswordInput.CurrentPassword"></span>
                 </div>
             </div>
             <div class="row mb-4">
@@ -101,6 +99,7 @@
                            placeholder='@L["NewPasswordTip"]'
                            aria-label='@L["NewPasswordTip"]'
                            asp-for="UpdatePasswordInput.NewPassword">
+                    <span class="text-danger small" asp-validation-for="UpdatePasswordInput.NewPassword"></span>
                 </div>
             </div>
             <div class="row mb-4">
@@ -111,6 +110,7 @@
                                placeholder='@L["ConfirmPasswordTip"]'
                                aria-label='@L["ConfirmPasswordTip"]'
                                asp-for="UpdatePasswordInput.ConfirmPassword">
+                        <span class="text-danger small" asp-validation-for="UpdatePasswordInput.ConfirmPassword"></span>
                     </div>
                     <h5>@L["PasswordRequirements"]</h5>
                     <p class="card-text small">@L["PasswordRequirementsDesc"]</p>
